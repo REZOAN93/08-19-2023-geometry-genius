@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                 "btn-color": "#1090D8",
+                
+              },
+            },
+          },
+        };
+      </script>
+  </head>
+  <body class="max-w-screen-xl mx-auto my-2">
+    <header>
+      <div class="navbar bg-blue-100 rounded-lg">
+        <div class="navbar-start ">
+          <div class="dropdown">
+            <label tabindex="0" class="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </label>
+          </div>
+          <div class="px-3">
+            <p class="text-2xl font-bold">Interactive</p>
+            <p class="text-lg font-semibold">Geometry Genius</p>
+          </div>
+        </div>
+        <div class="navbar-center hidden lg:flex"></div>
+        <div class="navbar-end px-5">
+          <a class="btn bg-btn-color hover:bg-blue-500 ">Blog</a>
+        </div>
+      </div>
+    </header>
+    <main>
+        <div class="flex border">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 w-9/12 border">
+                <div class="card bg-base-100 shadow-xl my-5 border">
+                    <figure class="mt-5"><img src="./images/triangle.png" alt="Shoes" /></figure>
+                    <div class="card-body items-center space-y-1">
+                      <h2 class="card-title" id="trianglehead">Triangle</h2>
+                      <p class="flex items-center gap-3">Area (A) =0.5 𐤕 b 𐤕 h</p>
+                      <div class="flex gap-3">
+                        <input type="number" name="" class="w-24 px-2" placeholder="b" id="firstValueTriangle">
+                        <p>cm</p>
+                        <input type="number" name="" class="w-24 px-2" placeholder="h" id="secondValueTriangle">
+                        <p>cm</p>
+                      </div>
+                      <p id="areaInfo">Area: <span id="area-field"></span> cm <sup>2</sup></p>
+                    </div>
+                    <button onclick="handleCalculateBtn()" class="btn bg-btn-color hover:bg-btn-color w-10/12 mx-auto mb-5 text-white font-bold text-lg">Calculate</button>  
+                </div>
+                <div class="card bg-base-100 shadow-xl my-5 border">
+                    <figure class="mt-5"><img src="./images/rectangle.png" alt="Shoes" /></figure>
+                    <div class="card-body items-center space-y-1">
+                      <h2 class="card-title" id="rectanglehead">Rectangle</h2>
+                      <p class="flex items-center gap-3">Area (A) =0.5 𐤕 W 𐤕 I</p>
+                      <div class="flex gap-3">
+                        <input type="number" name="" class="w-24 px-2" placeholder="w" id="firstValueRactangel">
+                        <p>cm</p>
+                        <input type="number" name="" class="w-24 px-2" placeholder="i" id="SecondValueRactangel">
+                        <p>cm</p>
+                      </div>
+                      <p>Area: <span id="area-field1"></span> cm <sup>2</sup></p>
+                    </div>
+                    <button onclick="handleRactangleBtn()" class="btn bg-btn-color hover:bg-btn-color w-10/12 mx-auto mb-5 text-white font-bold text-lg">Calculate</button>
+                </div>
+                <div class="card bg-base-100 shadow-xl my-5 border">
+                    <figure class="mx-3 mt-6"><img src="./images/parallelogram.png" alt="Shoes" /></figure>
+                    <div class="card-body items-center space-y-1">
+                      <h2 class="card-title" id="parallelogramHead">Parallelogram</h2>
+                      <p class="flex items-center gap-3">Area (A) =b 𐤕 h</p>
+                      <div class="flex gap-3">
+                        <input type="number" name="" class="w-24 px-2" placeholder="b" id="firstValueparalle">
+                        <p>cm</p>
+                        <input type="number" name="" class="w-24 px-2" placeholder="h" id="secondValueparalle">
+                        <p>cm</p>
+                      </div>
+                      <p>Area: <span id="area-field2"></span> cm <sup>2</sup></p>
+                    </div>
+                    <button onclick="handleparallelogrambtn()" class="btn bg-btn-color hover:bg-btn-color w-10/12 mx-auto mb-5 text-white font-bold text-lg">Calculate</button>
+                </div>
+                <div class="card bg-base-100 shadow-xl my-5 border">
+                    <figure class="mt-5"><img src="./images/rhombus.png" alt="Shoes" /></figure>
+                    <div class="card-body items-center space-y-1">
+                      <h2 class="card-title" id="rhombusTitle">Rhombus</h2>
+                      <p class="flex items-center gap-3">Area (A) =0.5 𐤕<span>D<span class="text-xs">1</span></span> 𐤕 <span>D<span class="text-xs">2</span></span> </p>
+                      <!-- <p class="text-xl"> <span>D<span class="text-xs">1</span></span> = <span>16</span>cm  D <sub>1</sub> = <span>8</span> cm</p> -->
+                      <div class="flex gap-3">
+                        <input type="number" name="" class="w-24 px-2" placeholder="b" id="firstValuerhombus">
+                        <p>cm</p>
+                        <input type="number" name="" class="w-24 px-2" placeholder="h" id="secondValuerhombus">
+                        <p>cm</p>
+                      </div>
+                      <p>Area: <span id="area-field3"></span> cm <sup>2</sup></p>
+                    
+                    </div>
+                    <button onclick="handlerhombusbtn()" class="btn bg-btn-color hover:bg-btn-color w-10/12 mx-auto mb-5 text-white font-bold text-lg">Calculate</button> 
+                </div>
+                <div class="card bg-base-100 shadow-xl my-5 border">
+                    <figure class="mt-5"><img src="./images/pentagon.png" alt="Shoes" /></figure>
+                    <div class="card-body items-center space-y-1">
+                      <h2 class="card-title" id="pentagon">Pentagon</h2>
+                      <p class="flex items-center gap-3">Area (A) =0.5 𐤕 p 𐤕 b</p>
+                      <div class="flex gap-3">
+                        <input type="number" name="" class="w-24 px-2" placeholder="p" id="pentagon1">
+                        <p>cm</p>
+                        <input type="number" name="" class="w-24 px-2" placeholder="b" id="pentagon2">
+                        <p>cm</p>
+                        
+                      </div>
+                      <p>Area: <span id="area-field4"></span> cm <sup>2</sup></p>
+                    </div>
+                    <button onclick="handlePentagonBtn()" class="btn bg-btn-color hover:bg-btn-color w-10/12 mx-auto mb-5 text-white font-bold text-lg">Calculate</button>
+                </div>
+                <div class="card bg-base-100 shadow-xl my-5 border">
+                    <figure class="mt-5"><img src="./images/ellipse.png" alt="Shoes" /></figure>
+                    <div class="card-body items-center space-y-1">
+                      <h2 class="card-title" id="ellipsehead">Ellipse</h2>
+                      <p class="flex items-center gap-3">Area (A) = π ab</p>
+                      <div class="flex gap-3">
+                        <input type="number" name="" class="w-24 px-2" placeholder="b" id="ellipse1">
+                        <p>cm</p>
+                        <input type="number" name="" class="w-24 px-2" placeholder="h" id="ellipse2">
+                        <p>cm</p>
+                      </div>
+                      <p>Area: <span id="area-field5"></span> cm <sup>2</sup></p>
+                    </div>
+                    <button onclick="handleEllipseBtn()" class="btn bg-btn-color hover:bg-btn-color w-10/12 mx-auto mb-5 text-white font-bold text-lg">Calculate</button>
+                </div>
+            </div>
+            <div class="w-3/12 text-left pl-5 space-y-1 mt-2" id="calculated-area">
+                <h1 class="font-bold underline text-lg">Area Calculation</h1>
+                
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+    <script src="./Script/area-calculator.js"></script>
+  </body>
+</html>
